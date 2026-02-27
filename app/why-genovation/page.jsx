@@ -1,5 +1,7 @@
 "use client";
 
+import dynamic from "next/dynamic";
+
 import WGHero from "@/components/why-genovation/WGHero";
 import WGDeployment from "@/components/why-genovation/WGDeployment";
 import WGSovereignty from "@/components/why-genovation/WGSovereignty";
@@ -11,7 +13,12 @@ import WGStack from "@/components/why-genovation/WGStack";
 import WGIndustries from "@/components/why-genovation/WGIndustries";
 import WGCTA from "@/components/why-genovation/WGCTA";
 import WGFooter from "@/components/why-genovation/WGFooter";
-import WGAnimations from "@/components/why-genovation/WGAnimations";
+
+// 🔥 Disable SSR for animations component
+const WGAnimations = dynamic(
+  () => import("@/components/why-genovation/WGAnimations"),
+  { ssr: false }
+);
 
 export default function WhyGenovationPage() {
   return (
@@ -80,7 +87,6 @@ export default function WhyGenovationPage() {
         ))}
       </div>
 
-      {/* Page Sections */}
       <WGHero />
       <div className="divider-enhanced" />
       <WGDeployment />
@@ -97,12 +103,9 @@ export default function WhyGenovationPage() {
       <div className="divider-enhanced" />
       <WGStack />
       <div className="divider-enhanced" />
-      {/* <WGIndustries /> */}
-      <div className="divider-enhanced" />
       <WGCTA />
-      {/* <WGFooter /> */}
 
-      {/* GSAP — mounts last, after all DOM is ready */}
+      {/* Animations loaded only in browser */}
       <WGAnimations />
     </>
   );
