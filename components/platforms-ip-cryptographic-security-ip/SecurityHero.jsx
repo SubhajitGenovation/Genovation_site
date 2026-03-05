@@ -68,7 +68,7 @@ export default function SecurityHero() {
           {/* Left */}
           <div>
             {/* Badge */}
-            <div className="mb-8 opacity-0" id="heroBadge">
+            {/* <div className="mb-8 opacity-0" id="heroBadge">
               <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-cyan-500/[0.1] border border-cyan-500/[0.2]">
                 <div
                   className="w-2 h-2 rounded-full bg-cyan-500"
@@ -78,7 +78,7 @@ export default function SecurityHero() {
                   Cryptographic & Security IP
                 </span>
               </div>
-            </div>
+            </div> */}
 
             {/* Title */}
             <h1

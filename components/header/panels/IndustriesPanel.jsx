@@ -8,12 +8,14 @@ const toPublicPath = (href = "/") => href.replace(/^\/a-/, "/");
 export default function IndustriesPanel() {
   return (
     <div className="pt-0 pb-6">
-      <div className="grid grid-cols-2 gap-0 px-0 py-9">
-        <div className="pr-10 border-r border-gray-100">
+      {/* Mobile: Stack vertically, Desktop: 2-column grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-0 px-0 py-6 md:py-9">
+        {/* Left Column: Primary Industries */}
+        <div className="md:pr-10 md:border-r border-gray-100">
           <div className="text-xs uppercase tracking-widest text-emerald-700 mb-4 font-semibold">
             Primary Industries
           </div>
-          <div className="grid grid-cols-2 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             <Link
               href="/financial-services"
               className="group flex flex-col gap-2 p-3 rounded-xl hover:bg-white hover:shadow-sm transition-all border border-transparent hover:border-black/5"
@@ -26,7 +28,7 @@ export default function IndustriesPanel() {
                 AML/KYC compliance, algorithmic risk assessment, full-spectrum
                 financial intelligence
               </div>
-              <div className="flex gap-1.5 mt-auto">
+              <div className="flex flex-wrap gap-1.5 mt-auto">
                 <span className="bg-gray-100 text-gray-600 text-[9px] px-1.5 py-0.5 rounded">SEC</span>
                 <span className="bg-gray-100 text-gray-600 text-[9px] px-1.5 py-0.5 rounded">SOX</span>
                 <span className="bg-gray-100 text-gray-600 text-[9px] px-1.5 py-0.5 rounded">DORA</span>
@@ -44,7 +46,7 @@ export default function IndustriesPanel() {
                 Air-gapped deployment for classified environments within your
                 secure enclave
               </div>
-              <div className="flex gap-1.5 mt-auto">
+              <div className="flex flex-wrap gap-1.5 mt-auto">
                 <span className="bg-gray-100 text-gray-600 text-[9px] px-1.5 py-0.5 rounded">ITAR</span>
                 <span className="bg-gray-100 text-gray-600 text-[9px] px-1.5 py-0.5 rounded">FedRAMP High</span>
               </div>
@@ -61,7 +63,7 @@ export default function IndustriesPanel() {
                 Sovereign AI for sovereign nations. Full NIST, FedRAMP, and
                 classification-level compliance
               </div>
-              <div className="flex gap-1.5 mt-auto">
+              <div className="flex flex-wrap gap-1.5 mt-auto">
                 <span className="bg-gray-100 text-gray-600 text-[9px] px-1.5 py-0.5 rounded">IL4/IL5</span>
                 <span className="bg-gray-100 text-gray-600 text-[9px] px-1.5 py-0.5 rounded">NIST 800-171</span>
               </div>
@@ -78,7 +80,7 @@ export default function IndustriesPanel() {
                 SCADA grid intelligence, predictive load management — on-premise
                 within your OT perimeter
               </div>
-              <div className="flex gap-1.5 mt-auto">
+              <div className="flex flex-wrap gap-1.5 mt-auto">
                 <span className="bg-gray-100 text-gray-600 text-[9px] px-1.5 py-0.5 rounded">NERC CIP</span>
                 <span className="bg-gray-100 text-gray-600 text-[9px] px-1.5 py-0.5 rounded">SCADA</span>
               </div>
@@ -86,8 +88,10 @@ export default function IndustriesPanel() {
           </div>
         </div>
 
-        <div className="pl-10">
-          <div className="grid grid-cols-2 gap-10 mb-6">
+        {/* Right Column */}
+        <div className="md:pl-10 mt-6 md:mt-0">
+          {/* Industry Verticals */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-10 mb-6">
             <div>
               <div className="text-xs uppercase tracking-widest text-emerald-700 mb-4 font-semibold">Manufacturing</div>
               <MgLink
@@ -125,6 +129,8 @@ export default function IndustriesPanel() {
               />
             </div>
           </div>
+
+          {/* Stats - Full width on mobile */}
           <StatRow
             stats={[
               { value: "6", label: "Industries" },
@@ -133,6 +139,8 @@ export default function IndustriesPanel() {
               { value: "100%", label: "Sovereign" },
             ]}
           />
+
+          {/* Case Study Card */}
           <div className="mt-4 bg-emerald-50/50 rounded-xl p-5 border border-emerald-100/50">
             <div className="text-[10px] font-semibold tracking-[0.18em] uppercase text-teal-600 mb-2">
               ✦ Case Study
@@ -144,18 +152,18 @@ export default function IndustriesPanel() {
               Full sovereign deployment, zero data leakage, $2.1M annual
               savings.
             </div>
-            <Link
-              href="/case-studies"
-              className="inline-flex items-center gap-1.5 mt-2.5 text-[12px] font-medium text-emerald-700 hover:text-emerald-800 transition-colors"
-            >
+            <span className="inline-flex items-center gap-1.5 mt-2.5 text-[12px] font-medium text-emerald-700 cursor-default">
               Read Case Study <Icon name="arrow-right" className="w-3 h-3" />
-            </Link>
+            </span>
           </div>
         </div>
       </div>
-      <div className="flex items-center gap-8 pt-4 border-t border-gray-100 text-[13px] font-medium text-gray-500">
+
+      {/* Footer Links - Wrap on mobile */}
+      <div className="flex flex-wrap items-center gap-4 md:gap-8 pt-4 border-t border-gray-100 text-[13px] font-medium text-gray-500">
         <Link href={toPublicPath("/a-industries")} className="hover:text-emerald-700 transition-colors">All Industries →</Link>
-        <Link href={toPublicPath("/a-case-studies")} className="hover:text-emerald-700 transition-colors">Case Studies →</Link>
+        {/* <Link href={toPublicPath("/a-case-studies")} className="hover:text-emerald-700 transition-colors">Case Studies →</Link> */}
+        <span className="hover:text-emerald-700 transition-colors cursor-default">Case Studies →</span>
         <Link href={toPublicPath("/a-industries")} className="hover:text-emerald-700 transition-colors">ROI Calculator →</Link>
       </div>
     </div>

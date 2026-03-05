@@ -7,7 +7,8 @@ import {
     Scale, ScrollText, Binary, RadioTower,
     Landmark, Plane, Building2, Factory, TrendingUp, Settings, Microscope, ClipboardCheck,
     Info, Target, UserCheck, Trophy, Globe, Bot, Coins, FlaskConical, Code2, Briefcase,
-    Building, Handshake, Mail, ChevronRight, Menu, X
+    Building, Handshake, Mail, ChevronRight, Menu, X,
+    Heart
 } from "lucide-react";
 
 const ICON_MAP = {
@@ -74,6 +75,7 @@ const ICON_MAP = {
     "chevron-right": ChevronRight,
     "menu": Menu,
     "close": X,
+    "heart": Heart,
 };
 
 export default function Icon({ name, className, style }) {

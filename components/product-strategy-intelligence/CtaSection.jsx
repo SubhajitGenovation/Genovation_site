@@ -28,7 +28,7 @@ export default function CtaSection() {
 
         <div className="flex justify-center gap-4 r-up">
           <a
-            href="#"
+            href="/request-demo"
             className="px-7 py-3 rounded-full hero-cta-primary text-white text-sm font-light tracking-wide"
           >
             Request Demo

@@ -1,8 +1,11 @@
 "use client";
 
 import { ArrowRight } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 export function CTASection() {
+  const router = useRouter();
+
   return (
     <section id="cta" style={{ padding: "14rem 0", position: "relative", overflow: "hidden" }}>
       <div
@@ -79,6 +82,7 @@ export function CTASection() {
         >
           <div className="mag-btn">
             <button
+              onClick={() => router.push('/talk-to-sales')}
               className="btn-inner"
               style={{
                 padding: "1rem 2.25rem",
@@ -103,6 +107,7 @@ export function CTASection() {
           </div>
           <div className="mag-btn">
             <button
+              onClick={() => router.push('/operational-demo')}
               className="btn-inner"
               style={{
                 padding: "1rem 2.25rem",

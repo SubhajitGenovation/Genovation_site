@@ -258,7 +258,7 @@ export default function HeroSection() {
             Explore Capabilities
           </a>
           <a
-            href="#demo"
+            href="/request-demo"
             className="mag-btn"
             style={{
               display: "inline-flex",

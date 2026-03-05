@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import { useRouter } from "next/navigation";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -9,7 +10,12 @@ import { Headphones, ArrowRight, PlayCircle, Cpu } from "lucide-react";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function CXHero() {
+  const router = useRouter();
   const ref = useRef(null);
+
+  const handleRequestDemo = () => {
+    router.push("/request-demo");
+  };
 
   useGSAP(() => {
     if (typeof document === "undefined") return;
@@ -125,7 +131,10 @@ export default function CXHero() {
 
         {/* Buttons */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-5" id="heroButtons" style={{ opacity: 0 }}>
-          <button className="hero-cta-primary group relative px-9 py-4 rounded-full text-[15px] font-medium flex items-center gap-3 overflow-hidden">
+          <button 
+            onClick={handleRequestDemo}
+            className="hero-cta-primary group relative px-9 py-4 rounded-full text-[15px] font-medium flex items-center gap-3 overflow-hidden"
+          >
             <span className="relative z-10 text-white flex items-center gap-3">
               Request Demo
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform duration-300" />

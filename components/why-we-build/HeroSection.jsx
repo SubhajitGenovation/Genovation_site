@@ -3,18 +3,13 @@ import { Compass } from "lucide-react";
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24" id="hero">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-32 md:pt-40" id="hero">
       <div className="absolute inset-0 mesh-bg opacity-20" />
       <div className="orb w-[600px] h-[600px] bg-emerald-500/[0.06]" style={{ top: "10%", left: "20%" }} />
       <div className="orb w-[400px] h-[400px] bg-cyan-500/[0.05]" style={{ top: "40%", right: "10%" }} />
 
       <div className="relative max-w-5xl mx-auto px-8 text-center">
-        <div className="mb-8 r-up">
-          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-emerald-500/[0.1] border border-emerald-500/[0.2]">
-            <Compass className="w-3 h-3 text-emerald-600" />
-            <span className="text-emerald-600 text-[11px] font-light tracking-[0.25em] uppercase">What We Build & Why</span>
-          </div>
-        </div>
+        {/* Removed Badge section */}
 
         <h1 className="display-hero text-6xl md:text-7xl lg:text-[6.5rem] mb-8 r-up">
           Enterprise Intelligence<br />

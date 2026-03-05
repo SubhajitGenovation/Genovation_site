@@ -1,4 +1,5 @@
 "use client";
+import { useRouter } from "next/navigation";
 import { FileText, ShieldCheck, SlidersHorizontal, ArrowRight, BookOpen } from "lucide-react";
 
 const pillars = [
@@ -26,6 +27,12 @@ const pillars = [
 ];
 
 export default function CTASection() {
+  const router = useRouter();
+
+  const handleRequestDemo = () => {
+    router.push("/request-demo");
+  };
+
   return (
     <section className="py-40 relative overflow-hidden" id="cta">
       <div className="absolute inset-0 mesh-bg opacity-10" />
@@ -71,7 +78,10 @@ export default function CTASection() {
 
           {/* CTAs */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button className="group px-8 py-4 rounded-full bg-gradient-to-r from-emerald-500 to-cyan-400 text-black text-base font-medium flex items-center gap-3 hover:scale-[1.02] transition-all">
+            <button 
+              onClick={handleRequestDemo}
+              className="group px-8 py-4 rounded-full bg-gradient-to-r from-emerald-500 to-cyan-400 text-black text-base font-medium flex items-center gap-3 hover:scale-[1.02] transition-all"
+            >
               Request Demo
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </button>

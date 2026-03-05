@@ -8,9 +8,10 @@ const toPublicPath = (href = "/") => href.replace(/^\/a-/, "/");
 export default function ProductsPanel() {
   return (
     <div className="pt-0 pb-6">
-      <div className="grid grid-cols-[5fr_3.5fr_3.5fr] gap-0 px-0 py-9">
+      {/* Mobile: Stack vertically, Desktop: 3-column grid */}
+      <div className="grid grid-cols-1 md:grid-cols-[5fr_3.5fr_3.5fr] gap-6 md:gap-0 px-0 py-6 md:py-9">
         {/* Column 1: Intelligence Products */}
-        <div className="pr-10 border-r border-gray-100">
+        <div className="md:pr-10 md:border-r border-gray-100">
           <div className="text-xs uppercase tracking-widest text-emerald-700 mb-4 font-semibold">
             Intelligence Products
           </div>
@@ -53,8 +54,8 @@ export default function ProductsPanel() {
           </div>
         </div>
 
-        {/* Column 2: Why Genovation */}
-        <div className="px-9 border-r border-gray-100">
+        {/* Column 2: Why Genovation - Mobile: appears after first column */}
+        <div className="md:px-9 md:border-r border-gray-100 mt-6 md:mt-0">
           <div className="text-xs uppercase tracking-widest text-emerald-700 mb-4 font-semibold">
             Why Genovation
           </div>
@@ -83,8 +84,11 @@ export default function ProductsPanel() {
             icon="leaf"
             label="Sustainable AI Economics"
           />
-          <div className="h-px bg-gray-100 my-4" />
-          <div className="text-xs uppercase tracking-widest text-emerald-700 mb-4 font-semibold">
+          
+          {/* Mobile Divider */}
+          <div className="block md:hidden h-px bg-gray-100 my-4" />
+          
+          <div className="text-xs uppercase tracking-widest text-emerald-700 mb-4 font-semibold mt-4 md:mt-0">
             Governance
           </div>
           <MgLink
@@ -105,7 +109,7 @@ export default function ProductsPanel() {
         </div>
 
         {/* Column 3: Primary Buyers & Featured */}
-        <div className="pl-9">
+        <div className="md:pl-9 mt-6 md:mt-0">
           <div className="text-xs uppercase tracking-widest text-emerald-700 mb-4 font-semibold">
             Primary Buyers
           </div>
@@ -120,7 +124,7 @@ export default function ProductsPanel() {
             CIO / CTO
             <Icon
               name="chevron-right"
-              className="w-3 h-3 ml-auto text-gray-400 opacity-0 -translate-x-1 transition-all duration-200 group-hover:opacity-100 group-hover:translate-x-0 group-hover:text-emerald-500"
+              className="w-3 h-3 ml-auto text-gray-400 opacity-0 md:opacity-100 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200"
             />
           </Link>
           <Link
@@ -134,7 +138,7 @@ export default function ProductsPanel() {
             CFO / COO
             <Icon
               name="chevron-right"
-              className="w-3 h-3 ml-auto text-gray-400 opacity-0 -translate-x-1 transition-all duration-200 group-hover:opacity-100 group-hover:translate-x-0 group-hover:text-emerald-500"
+              className="w-3 h-3 ml-auto text-gray-400 opacity-0 md:opacity-100 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200"
             />
           </Link>
           <Link
@@ -148,7 +152,7 @@ export default function ProductsPanel() {
             Chief Strategy Officer
             <Icon
               name="chevron-right"
-              className="w-3 h-3 ml-auto text-gray-400 opacity-0 -translate-x-1 transition-all duration-200 group-hover:opacity-100 group-hover:translate-x-0 group-hover:text-emerald-500"
+              className="w-3 h-3 ml-auto text-gray-400 opacity-0 md:opacity-100 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200"
             />
           </Link>
           <Link
@@ -162,7 +166,7 @@ export default function ProductsPanel() {
             VP Customer Experience
             <Icon
               name="chevron-right"
-              className="w-3 h-3 ml-auto text-gray-400 opacity-0 -translate-x-1 transition-all duration-200 group-hover:opacity-100 group-hover:translate-x-0 group-hover:text-emerald-500"
+              className="w-3 h-3 ml-auto text-gray-400 opacity-0 md:opacity-100 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200"
             />
           </Link>
 
@@ -188,7 +192,8 @@ export default function ProductsPanel() {
         </div>
       </div>
 
-      <div className="flex items-center gap-8 pt-4 border-t border-gray-100 text-[13px] font-medium text-gray-500">
+      {/* Footer Links - Make them wrap on mobile */}
+      <div className="flex flex-wrap items-center gap-4 md:gap-8 pt-4 border-t border-gray-100 text-[13px] font-medium text-gray-500">
         <Link href={toPublicPath("/a-product-home")} className="hover:text-emerald-700 transition-colors">All Products →</Link>
         <Link href={toPublicPath("/a-request-demo")} className="hover:text-emerald-700 transition-colors">Request Demo →</Link>
         <Link href={toPublicPath("/a-product-home")} className="hover:text-emerald-700 transition-colors">Pricing →</Link>

@@ -53,7 +53,7 @@ export default function KnowledgePage() {
       <MentisSection />
       <Divider />
       <CtaSection />
-      <KnowledgeFooter />
+      {/* <KnowledgeFooter /> */}
     </>
   );
 }

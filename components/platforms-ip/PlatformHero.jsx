@@ -114,14 +114,14 @@ export default function PlatformHero() {
       <div className="relative max-w-7xl mx-auto px-8 py-20 w-full">
         {/* Header */}
         <div className="text-center max-w-4xl mx-auto mb-16">
-          <div className="flex items-center justify-center gap-2 mb-2">
+          {/* <div className="flex items-center justify-center gap-2 mb-2">
             <a href="#" className="text-[11px] text-gray-500 hover:text-gray-700 font-light tracking-wider transition-colors">Technology</a>
             <ChevronRight className="w-3 h-3 text-gray-400" />
-          </div>
-          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-violet-500/[0.08] border border-violet-500/[0.15] mb-8 r-up">
+          </div> */}
+          {/* <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-violet-500/[0.08] border border-violet-500/[0.15] mb-8 r-up">
             <Layers className="w-3 h-3 text-violet-600" />
             <span className="text-violet-600 text-[11px] font-light tracking-[0.25em] uppercase">Platforms & Foundational IP</span>
-          </div>
+          </div> */}
           <h1 className="display-hero text-5xl md:text-6xl lg:text-[5.5rem] mb-8 r-up">
             The Engineering<br />
             <span className="text-gradient">Foundations</span> Behind<br />

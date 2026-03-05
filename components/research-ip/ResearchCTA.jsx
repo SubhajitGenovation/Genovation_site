@@ -28,7 +28,7 @@ export default function ResearchCTA() {
             </a>
           </div>
           <div className="mag-btn">
-            <a href="#" className="btn-inner px-8 py-4 rounded-full bg-black/[0.05] border border-black/[0.1] text-gray-600 text-[15px] font-light hover:bg-black/[0.08] transition-all">
+            <a href="/talk-to-sales" className="btn-inner px-8 py-4 rounded-full bg-black/[0.05] border border-black/[0.1] text-gray-600 text-[15px] font-light hover:bg-black/[0.08] transition-all">
               Collaboration Inquiries
             </a>
           </div>

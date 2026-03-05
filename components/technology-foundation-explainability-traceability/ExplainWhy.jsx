@@ -1,5 +1,6 @@
 "use client";
 import { useRef } from "react";
+import { useRouter } from "next/navigation";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
@@ -8,6 +9,11 @@ import { Target, CheckCircle, Search, Scale, HeartHandshake, ArrowRight } from "
 export default function ExplainWhy() {
   // ONE ref wrapping BOTH sections so useGSAP scope covers everything
   const containerRef = useRef(null);
+  const router = useRouter();
+
+  const handleRequestDemo = () => {
+    router.push("/request-demo");
+  };
 
   useGSAP(() => {
     if (typeof document === "undefined") return;
@@ -144,7 +150,10 @@ export default function ExplainWhy() {
               </button>
             </div>
             <div className="mag-btn">
-              <button className="btn-inner px-8 py-3.5 rounded-full bg-black/[0.05] border border-black/[0.1] text-gray-600 text-[15px] font-light flex items-center gap-3 hover:bg-black/[0.08] transition-all">
+              <button 
+                onClick={handleRequestDemo}
+                className="btn-inner px-8 py-3.5 rounded-full bg-black/[0.05] border border-black/[0.1] text-gray-600 text-[15px] font-light flex items-center gap-3 hover:bg-black/[0.08] transition-all"
+              >
                 Request Demo
               </button>
             </div>

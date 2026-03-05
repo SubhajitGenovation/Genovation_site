@@ -16,22 +16,22 @@ export default function DeploymentHero() {
 
       <div className="relative max-w-7xl mx-auto px-6 w-full">
         {/* Breadcrumb */}
-        <div className="flex items-center gap-2 text-[11px] mb-12 r-up">
+        {/* <div className="flex items-center gap-2 text-[11px] mb-12 r-up">
           <a href="#" className="text-gray-400 hover:text-gray-600 transition-colors font-light">Technology Foundation</a>
           <span className="text-gray-300">/</span>
           <span className="text-indigo-500 font-light">Deployment Models</span>
-        </div>
+        </div> */}
 
         <div className="grid lg:grid-cols-2 gap-20 items-center">
           {/* Left */}
           <div>
-            <div
+            {/* <div
               className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full mb-8 r-up"
               style={{ background: "rgba(99,102,241,0.06)", border: "1px solid rgba(99,102,241,0.12)" }}
             >
               <div className="w-1.5 h-1.5 rounded-full bg-indigo-400" />
               <span className="text-indigo-500 text-[10px] font-medium uppercase tracking-[0.2em]">Infrastructure Flexibility</span>
-            </div>
+            </div> */}
 
             <h1 className="text-6xl md:text-[5.5rem] display-hero text-gray-800 mb-8 r-up">
               Deployment<br />

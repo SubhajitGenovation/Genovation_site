@@ -42,8 +42,8 @@ export default function HeroSection() {
       // ── Hero entrance timeline ──
       const tl = gsap.timeline({ delay: 0.2 });
       tl
-        .to("#heroBreadcrumb", { opacity: 1, duration: 0.6, ease: "power2.out" })
-        .to("#heroBadge",      { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" }, "-=0.2")
+        // Removed heroBreadcrumb animation
+        // Removed heroBadge animation
         // Animate line 1 chars
         .to(line1 ? [...line1.children] : [], {
           opacity: 1, y: 0, rotateX: 0, skewX: 0,
@@ -97,29 +97,11 @@ export default function HeroSection() {
 
       <div
         className="relative w-full max-w-6xl mx-auto px-8 text-center"
-        style={{ paddingTop: "10rem", paddingBottom: "6rem" }}
+        style={{ paddingTop: "6rem", paddingBottom: "6rem" }}
       >
-        {/* ── Breadcrumb ── */}
-        <div className="mb-10" id="heroBreadcrumb" style={{ opacity: 0 }}>
-          <div className="inline-flex items-center gap-2 text-gray-400 font-light"
-            style={{ fontSize: 11, letterSpacing: "0.15em", textTransform: "uppercase" }}>
-            <Link href="/products" className="hover:text-sky-600 transition-colors">Products</Link>
-            <ChevronRight className="w-3 h-3" />
-            <span className="text-sky-600">Knowledge Intelligence</span>
-          </div>
-        </div>
-
-        {/* ── Badge ── */}
-        <div id="heroBadge" className="mb-14" style={{ opacity: 0, transform: "translateY(16px)" }}>
-          <div className="inline-flex items-center gap-3 px-6 py-2.5 rounded-full"
-            style={{ background: "rgba(14,165,233,0.08)", border: "1px solid rgba(14,165,233,0.18)" }}>
-            <span className="w-2 h-2 rounded-full bg-sky-500 soft-pulse" />
-            <span className="text-sky-600 font-light"
-              style={{ fontSize: 11, letterSpacing: "0.25em", textTransform: "uppercase" }}>
-              Enterprise Knowledge Management
-            </span>
-          </div>
-        </div>
+        {/* ── Removed Breadcrumb section ── */}
+        
+        {/* ── Removed Badge section ── */}
 
         {/* ── H1 ── */}
         <h1

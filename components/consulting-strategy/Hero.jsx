@@ -29,7 +29,7 @@ export default function Hero() {
 
         const heroTL = gsap.timeline({ delay: 0.5 });
         heroTL
-            .to(badgeRef.current, { opacity: 1, y: 0, duration: 1, ease: "power3.out" })
+            // Removed badge animation
             .to(
                 ".hero-line:first-child .char",
                 { opacity: 1, y: 0, rotateX: 0, stagger: 0.02, duration: 1.2, ease: "power4.out" },
@@ -53,17 +53,13 @@ export default function Hero() {
     }, []);
 
     return (
-        <section className="relative min-h-screen flex items-center pt-28 pb-24 overflow-hidden" id="hero">
+        <section className="relative min-h-screen flex items-center pt-40 pb-24 overflow-hidden" id="hero">
             <Orb className="w-[800px] h-[600px] bg-emerald-500/[0.05]" style={{ top: "0%", left: "-10%" }} />
             <Orb className="w-[500px] h-[400px] bg-violet-500/[0.04]" style={{ bottom: "5%", right: "0%" }} />
             <div className="relative max-w-6xl mx-auto px-8 w-full">
                 <div className="max-w-4xl">
-                    <div className="mb-8 opacity-0" ref={badgeRef} id="heroBadge">
-                        <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-violet-500/[0.14] border border-violet-500/[0.35]">
-                            <Compass className="w-3 h-3 text-violet-600" />
-                            <span className="text-violet-600 text-[11px] font-light tracking-[0.25em] uppercase">Consulting & Strategy</span>
-                        </div>
-                    </div>
+                    {/* Removed Badge section */}
+                    
                     <h1 className="display-hero text-5xl md:text-6xl lg:text-[5.5rem] mb-10" ref={titleRef} id="heroTitle" style={{ perspective: "1200px" }}>
                         <span className="hero-line">We Don't Sell You AI.</span>
                         <br />

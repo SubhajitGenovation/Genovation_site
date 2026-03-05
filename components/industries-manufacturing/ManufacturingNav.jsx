@@ -1,6 +1,14 @@
 "use client";
 
+import { useRouter } from "next/navigation";
+
 export default function ManufacturingNav() {
+  const router = useRouter();
+
+  const handleRequestDemo = () => {
+    router.push("/request-demo");
+  };
+
   return (
     <nav
       id="mainNav"
@@ -101,6 +109,7 @@ export default function ManufacturingNav() {
         <div className="mag-btn">
           <button
             className="btn-inner"
+            onClick={handleRequestDemo}
             style={{
               padding: "0.5rem 1.25rem",
               borderRadius: "9999px",

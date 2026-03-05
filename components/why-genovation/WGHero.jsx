@@ -3,20 +3,14 @@ import { Shield } from "lucide-react";
 
 export default function WGHero() {
   return (
-    <section className="relative min-h-[130vh] flex items-center justify-center overflow-hidden" id="hero">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-32 md:pt-40" id="hero">
       <div className="absolute inset-0 mesh-bg opacity-30" />
       <div className="orb w-[700px] h-[600px] bg-emerald-500/[0.06]" style={{ top: "10%", left: "15%" }} />
       <div className="orb w-[500px] h-[400px] bg-cyan-500/[0.05]" style={{ bottom: "15%", right: "20%" }} />
       <div className="orb w-[600px] h-[400px] bg-blue-500/[0.04]" style={{ top: "40%", left: "50%" }} />
 
       <div className="relative max-w-6xl mx-auto px-8 text-center" id="heroContent">
-        {/* Badge */}
-        <div className="mb-12 opacity-0" id="heroBadge">
-          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-emerald-500/[0.12] border border-emerald-500/[0.2]">
-            <Shield className="w-3 h-3 text-emerald-600" />
-            <span className="text-emerald-600 text-[11px] font-light tracking-[0.25em] uppercase">Why Genovation</span>
-          </div>
-        </div>
+        {/* Removed Badge section */}
 
         {/* H1 — chars split by WGAnimations */}
         <h1 className="display-hero text-[clamp(3.5rem,8vw,7.5rem)] mb-12">

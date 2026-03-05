@@ -1,8 +1,11 @@
 "use client";
 
 import { ArrowRight } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 export default function CTASection() {
+  const router = useRouter();
+
   return (
     <>
       {/* CTA */}
@@ -34,6 +37,7 @@ export default function CTASection() {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 r-up">
             <button
+              onClick={() => router.push('/talk-to-sales')}
               className="group px-8 py-3.5 rounded-full text-white text-[15px] font-normal flex items-center gap-3 transition-all hover:shadow-2xl"
               style={{ background: "linear-gradient(to right, #065f46, #0f766e)", boxShadow: "none" }}
               onMouseEnter={(e) => e.currentTarget.style.boxShadow = "0 25px 50px -12px rgba(6,95,70,0.2)"}

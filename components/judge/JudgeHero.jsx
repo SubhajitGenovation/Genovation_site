@@ -50,12 +50,12 @@ export default function JudgeHero() {
       <div className="orb w-[500px] h-[400px] bg-cyan-500/[0.05]"   style={{ bottom: "15%", right: "10%" }} />
 
       <div id="heroContent" className="relative max-w-6xl mx-auto px-8 text-center">
-        <div id="heroBadge" className="mb-10" style={{ opacity: 0 }}>
+        {/* <div id="heroBadge" className="mb-10" style={{ opacity: 0 }}>
           <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-emerald-500/[0.1] border border-emerald-500/[0.2]">
             <Scale className="w-3 h-3 text-emerald-600" />
             <span className="text-emerald-600 text-[11px] font-light tracking-[0.25em] uppercase">AI Governance Layer</span>
           </div>
-        </div>
+        </div> */}
 
         <h1 className="display-hero text-7xl md:text-[8rem] lg:text-[9.5rem] mb-4" style={{ perspective: "1000px" }}>
           <span className="hero-line">JUDGE</span>

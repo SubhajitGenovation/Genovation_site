@@ -7,18 +7,13 @@ export default function HealthcareHero() {
     <>
 
       {/* Hero Section */}
-      <section className="pt-36 pb-24 relative overflow-hidden">
+      <section className="pt-40 pb-24 relative overflow-hidden">
         <div className="absolute inset-0 mesh-bg opacity-20"></div>
         <div className="orb w-[600px] h-[600px] bg-teal-400/[0.06] top-[-10%] right-[-8%]"></div>
         <div className="orb w-[450px] h-[450px] bg-cyan-400/[0.04] bottom-[10%] left-[-5%]"></div>
         
         <div className="relative max-w-5xl mx-auto px-6 text-center">
-          <div className="flex items-center justify-center gap-2.5 mb-6 r-up">
-            <div className="px-4 py-1.5 rounded-full bg-teal-500/[0.08] border border-teal-500/[0.15] flex items-center gap-2">
-              <Stethoscope className="w-3.5 h-3.5 text-teal-500" />
-              <span className="text-teal-600 text-[10px] font-light tracking-[0.25em] uppercase">Healthcare & Life Sciences</span>
-            </div>
-          </div>
+          {/* Removed Badge section with Stethoscope icon and "Healthcare & Life Sciences" text */}
           
           <h1 className="text-[3.5rem] md:text-[5rem] display-hero text-gray-800 mb-6 r-up leading-none">
             Intelligence that <span className="text-gradient-teal">protects trust</span> while advancing discovery

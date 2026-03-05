@@ -20,7 +20,7 @@ export default function PatentCTA() {
             <span>Contact Us</span>
             <ArrowRight className="w-4 h-4" />
           </a>
-          <a href="#" className="px-8 py-4 rounded-full bg-black/[0.05] border border-black/[0.1] text-gray-600 text-[15px] font-light hover:bg-black/[0.08] transition-all">
+          <a href="/talk-to-sales" className="px-8 py-4 rounded-full bg-black/[0.05] border border-black/[0.1] text-gray-600 text-[15px] font-light hover:bg-black/[0.08] transition-all">
             Investor Inquiries
           </a>
         </div>

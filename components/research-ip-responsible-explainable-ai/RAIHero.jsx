@@ -28,12 +28,12 @@ export default function RAIHero() {
 
         <div className="max-w-4xl">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-teal-500/[0.06] border border-teal-500/[0.12] mb-8 r-up">
+          {/* <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-teal-500/[0.06] border border-teal-500/[0.12] mb-8 r-up">
             <div className="w-1.5 h-1.5 rounded-full bg-teal-500" />
             <span className="text-teal-600 text-[10px] font-medium uppercase tracking-[0.2em]">
               Responsible AI Research
             </span>
-          </div>
+          </div> */}
 
           {/* Headline */}
           <h1 className="text-6xl md:text-[5.5rem] display-hero text-gray-800 mb-8 r-up">

@@ -38,12 +38,12 @@ export default function HeroSection() {
   return (
     <section id="hero" className="relative min-h-[130vh] flex items-center justify-center overflow-hidden">
       <div className="relative max-w-6xl mx-auto px-8 text-center" id="heroContent">
-        <div className="mb-12 opacity-0" id="heroBadge">
+        {/* <div className="mb-12 opacity-0" id="heroBadge">
           <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-emerald-500/[0.1] border border-emerald-500/[0.2]">
             <Database className="w-3 h-3 text-emerald-600" />
             <span className="text-emerald-600 text-[11px] font-light tracking-[0.25em] uppercase">Platform & Foundational IP</span>
           </div>
-        </div>
+        </div> */}
 
         <h1 className="display-hero text-7xl md:text-[8rem] lg:text-[9.5rem] mb-10" style={{ perspective: 1000 }}>
           <span className="hero-line block">Enterprise Data &</span>

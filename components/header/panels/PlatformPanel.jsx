@@ -9,12 +9,14 @@ const toPublicPath = (href = "/") => href.replace(/^\/a-/, "/");
 export default function PlatformPanel() {
   return (
     <div className="pt-0 pb-6">
-      <div className="grid grid-cols-[4.5fr_3.5fr_4fr] gap-0 px-0 py-9">
-        <div className="pr-10 border-r border-gray-100">
+      {/* Mobile: Stack vertically, Desktop: 3-column grid */}
+      <div className="grid grid-cols-1 md:grid-cols-[4.5fr_3.5fr_4fr] gap-6 md:gap-0 px-0 py-6 md:py-9">
+        {/* Left Column */}
+        <div className="md:pr-10 md:border-r border-gray-100">
           <div className="text-xs uppercase tracking-widest text-emerald-700 mb-4 font-semibold">
             Platforms &amp; Foundational IP
           </div>
-          <div className="grid grid-cols-2 gap-2 mb-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-6">
             <IndustryTile
               href="/a-platforms-ip-mentis-agentos"
               icon="cpu"
@@ -59,7 +61,8 @@ export default function PlatformPanel() {
           </div>
         </div>
 
-        <div className="px-9 border-r border-gray-100">
+        {/* Middle Column */}
+        <div className="md:px-9 md:border-r border-gray-100 mt-6 md:mt-0">
           <div className="text-xs uppercase tracking-widest text-emerald-700 mb-4 font-semibold">
             Technology Foundation
           </div>
@@ -72,7 +75,7 @@ export default function PlatformPanel() {
             href="/a-technology-foundation-slm-engine"
             icon="boxes"
             label={
-              <span className="flex items-center">
+              <span className="flex items-center flex-wrap">
                 Small Language Models
                 <span className="ml-1.5 text-[9px] px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 font-medium">
                   7.5× faster
@@ -84,7 +87,7 @@ export default function PlatformPanel() {
             href="/a-technology-foundation-slm-engine"
             icon="sparkles"
             label={
-              <span className="flex items-center">
+              <span className="flex items-center flex-wrap">
                 RIT Model Series
                 <span className="ml-1.5 text-[9px] px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 font-medium">
                   1.3B–13B
@@ -112,7 +115,8 @@ export default function PlatformPanel() {
           />
         </div>
 
-        <div className="pl-9">
+        {/* Right Column */}
+        <div className="md:pl-9 mt-6 md:mt-0">
           <div className="text-xs uppercase tracking-widest text-emerald-700 mb-4 font-semibold">
             Research &amp; IP
           </div>
@@ -162,7 +166,9 @@ export default function PlatformPanel() {
           </div>
         </div>
       </div>
-      <div className="flex items-center gap-8 pt-4 border-t border-gray-100 text-[13px] font-medium text-gray-500">
+      
+      {/* Footer Links - Wrap on mobile */}
+      <div className="flex flex-wrap items-center gap-4 md:gap-8 pt-4 border-t border-gray-100 text-[13px] font-medium text-gray-500">
         <Link href={toPublicPath("/a-platforms-ip")} className="hover:text-emerald-700 transition-colors">
           Architecture Overview →
         </Link>

@@ -43,7 +43,7 @@ export default function TechHero() {
           {/* Left */}
           <div>
             {/* Badge */}
-            <div
+            {/* <div
               className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-emerald-500/[0.06] border border-emerald-500/[0.12] mb-10 opacity-0"
               id="heroBadge"
             >
@@ -51,7 +51,7 @@ export default function TechHero() {
               <span className="text-emerald-700 text-[10px] font-medium tracking-[0.3em] uppercase font-mono">
                 The Foundation
               </span>
-            </div>
+            </div> */}
 
             {/* Title */}
             <h1

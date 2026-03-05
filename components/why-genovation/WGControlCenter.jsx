@@ -5,12 +5,12 @@ export default function WGControlCenter() {
   return (
     <section className="py-32 md:py-48 relative overflow-hidden">
       <div className="absolute inset-0 mesh-bg opacity-15" />
-      <div className="orb w-[600px] h-[500px] bg-violet-500/[0.04]" style={{ top: "5%", left: "20%" }} />
-      <div className="orb w-[500px] h-[400px] bg-cyan-500/[0.04]" style={{ bottom: "10%", right: "15%" }} />
+      <div className="orb w-150 h-125 bg-violet-500/4" style={{ top: "5%", left: "20%" }} />
+      <div className="orb w-125 h-100 bg-cyan-500/4" style={{ bottom: "10%", right: "15%" }} />
 
       <div className="relative max-w-7xl mx-auto px-8">
         <div className="text-center mb-20">
-          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-violet-500/[0.1] border border-violet-500/[0.15] mb-8 r-up">
+          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-violet-500/10 border border-violet-500/15 mb-8 r-up">
             <LayoutDashboard className="w-3 h-3 text-violet-500" />
             <span className="text-violet-500 text-[11px] font-light tracking-[0.25em] uppercase">Control Center</span>
           </div>
@@ -40,7 +40,7 @@ export default function WGControlCenter() {
 
             <div style={{ display: "flex", minHeight: "460px" }}>
               {/* Sidebar */}
-              <div style={{ width: 180, padding: 16, background: "rgba(248,247,245,0.5)", borderRight: "1px solid rgba(0,0,0,0.05)", display: "flex", flexDirection: "column", gap: 2 }}>
+              <div style={{ width: 180, padding: 16, background: "rgba(248,247,245,0.5)", borderRight: "1px solid rgba(0,0,0,0.05)", display: "flex", flexDirection: "column", gap: 6 }}>
                 {[
                   { icon: <LayoutDashboard size={16} />, label: "Dashboard", active: true },
                   { icon: <Bot size={16} />, label: "Agents" },
@@ -49,10 +49,13 @@ export default function WGControlCenter() {
                   { icon: <ScrollText size={16} />, label: "Audit Logs" },
                   { icon: <Database size={16} />, label: "Knowledge" },
                 ].map(({ icon, label, active }) => (
-                  <div key={label} className={`mock-sidebar-nav-item${active ? " active" : ""}`}>{icon}{label}</div>
+                  <div key={label} className={`mock-sidebar-nav-item${active ? " active" : ""} flex items-center gap-2 text-gray-600 border border-gray-100 rounded-lg px-2 py-2 text-sm`}>{icon}{label}</div>
                 ))}
                 <div style={{ flex: 1 }} />
-                <div className="mock-sidebar-nav-item"><Settings size={16} />Settings</div>
+                <div className="mock-sidebar-nav-item flex items-center gap-2">
+                  <Settings size={16} />
+                  Settings
+                </div>
               </div>
 
               {/* Main */}

@@ -13,8 +13,9 @@ export default function GovHero() {
 
       const tl = gsap.timeline({ delay: 0.3 });
 
-      tl.to("#heroBreadcrumb", { opacity: 1, duration: 0.6, ease: "power2.out" });
-      tl.to("#heroBadge", { opacity: 1, duration: 0.6, ease: "power2.out" }, "-=0.3");
+      // Removed breadcrumb and badge animations
+      // tl.to("#heroBreadcrumb", { opacity: 1, duration: 0.6, ease: "power2.out" });
+      // tl.to("#heroBadge", { opacity: 1, duration: 0.6, ease: "power2.out" }, "-=0.3");
 
       // Character split animation
       document.querySelectorAll(".hero-line").forEach((line) => {
@@ -48,29 +49,29 @@ export default function GovHero() {
     <section
       ref={heroRef}
       id="hero"
-      className="relative flex items-center justify-center overflow-hidden"
-      style={{ minHeight: "120vh" }}
+      className="relative flex items-center justify-center overflow-hidden pt-32 md:pt-40"
+      style={{ minHeight: "100vh" }}
     >
       <div className="absolute inset-0 mesh-bg" style={{ opacity: 0.2 }} />
       <div className="orb" style={{ width: 700, height: 500, background: "rgba(59,130,246,0.06)", top: "-10%", left: "25%" }} />
       <div className="orb" style={{ width: 500, height: 400, background: "rgba(99,102,241,0.04)", bottom: "10%", right: "10%" }} />
 
       <div className="relative max-w-6xl mx-auto px-8" id="heroContent">
-        {/* Breadcrumb */}
-        <div className="flex items-center gap-2 text-sm mb-12" id="heroBreadcrumb" style={{ opacity: 0 }}>
+        {/* Removed Breadcrumb section */}
+        {/* <div className="flex items-center gap-2 text-sm mb-12" id="heroBreadcrumb" style={{ opacity: 0 }}>
           <span className="text-gray-400 font-light">Industries</span>
           <svg className="w-3.5 h-3.5 text-gray-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="9 18 15 12 9 6" /></svg>
           <span className="text-blue-600 font-light">Government &amp; Public Sector</span>
-        </div>
+        </div> */}
 
         <div className="max-w-4xl">
-          {/* Badge */}
-          <div className="mb-8" id="heroBadge" style={{ opacity: 0 }}>
+          {/* Removed Badge section */}
+          {/* <div className="mb-8" id="heroBadge" style={{ opacity: 0 }}>
             <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full" style={{ background: "rgba(59,130,246,0.08)", border: "1px solid rgba(59,130,246,0.2)" }}>
               <div className="w-2 h-2 rounded-full bg-blue-500" style={{ animation: "pulse-soft 2s ease-in-out infinite" }} />
               <span className="text-blue-700 text-[11px] font-light tracking-[0.25em] uppercase">Government &amp; Public Sector</span>
             </div>
-          </div>
+          </div> */}
 
           {/* Hero Title */}
           <h1 className="display-hero text-6xl lg:text-[6.5rem] mb-6" id="heroTitle" style={{ perspective: 1000 }}>

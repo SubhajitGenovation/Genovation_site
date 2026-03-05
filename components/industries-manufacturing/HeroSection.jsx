@@ -6,11 +6,12 @@ export default function HeroSection() {
       id="hero"
       style={{
         position: "relative",
-        minHeight: "110vh",
+        minHeight: "100vh",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
         overflow: "hidden",
+        paddingTop: "5rem",
       }}
     >
       {/* Mesh BG */}
@@ -62,12 +63,12 @@ export default function HeroSection() {
           position: "relative",
           maxWidth: "80rem",
           margin: "0 auto",
-          padding: "8rem 2rem 0",
+          padding: "6rem 2rem 0",
           width: "100%",
         }}
       >
-        {/* Breadcrumb */}
-        <div
+        {/* Removed Breadcrumb section */}
+        {/* <div
           id="heroBreadcrumb"
           style={{
             display: "flex",
@@ -83,13 +84,13 @@ export default function HeroSection() {
           </a>
           <span style={{ color: "#9ca3af" }}>/</span>
           <span style={{ color: "#d97706", fontSize: "0.75rem", fontWeight: 300, letterSpacing: "0.05em" }}>Manufacturing</span>
-        </div>
+        </div> */}
 
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "5rem", alignItems: "center" }}>
           {/* Left Content */}
           <div>
-            {/* Industry Badge */}
-            <div
+            {/* Removed Industry Badge section */}
+            {/* <div
               id="heroBadge"
               style={{
                 display: "flex",
@@ -111,7 +112,6 @@ export default function HeroSection() {
                   justifyContent: "center",
                 }}
               >
-                {/* Factory icon */}
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#d97706" strokeWidth="1.5">
                   <path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/>
                   <path d="M17 18h1"/><path d="M12 18h1"/><path d="M7 18h1"/>
@@ -134,7 +134,7 @@ export default function HeroSection() {
                   Manufacturing
                 </p>
               </div>
-            </div>
+            </div> */}
 
             {/* Hero Title */}
             <h1

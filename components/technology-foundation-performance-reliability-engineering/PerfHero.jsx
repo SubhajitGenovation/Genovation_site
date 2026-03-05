@@ -65,12 +65,12 @@ export default function PerfHero() {
           {/* Left */}
           <div>
             {/* Badge */}
-            <div className="mb-8 opacity-0" id="heroBadge">
+            {/* <div className="mb-8 opacity-0" id="heroBadge">
               <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-emerald-500/[0.1] border border-emerald-500/[0.2]">
                 <Activity className="w-3 h-3 text-emerald-600" />
                 <span className="text-emerald-600 text-[11px] font-light tracking-[0.25em] uppercase">Technology Foundation</span>
               </div>
-            </div>
+            </div> */}
 
             {/* Title */}
             <h1 className="display-hero text-6xl md:text-7xl lg:text-[5.5rem] mb-8">

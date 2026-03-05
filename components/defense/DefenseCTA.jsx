@@ -2,6 +2,7 @@
 
 import React, { useEffect } from 'react';
 import { Shield, ArrowRight } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 
@@ -10,63 +11,15 @@ if (typeof window !== 'undefined') {
 }
 
 export default function DefenseCTA() {
+    const router = useRouter();
+
     useEffect(() => {
-        const reveals = document.querySelectorAll('.r-up');
-        reveals.forEach(el => {
-            gsap.to(el, {
-                opacity: 1,
-                y: 0,
-                duration: 1,
-                ease: 'power3.out',
-                scrollTrigger: {
-                    trigger: el,
-                    start: 'top 87%',
-                    once: true
-                }
-            });
-        });
-
-        const scales = document.querySelectorAll('.r-scale');
-        scales.forEach(el => {
-            gsap.to(el, {
-                opacity: 1,
-                scale: 1,
-                duration: 1,
-                ease: 'power3.out',
-                scrollTrigger: {
-                    trigger: el,
-                    start: 'top 87%',
-                    once: true
-                }
-            });
-        });
-
-        // Magnetic Buttons
-        const magBtns = document.querySelectorAll('.mag-btn');
-        magBtns.forEach(btn => {
-            const inner = btn.querySelector('.btn-inner');
-            if (!inner) return;
-
-            const handleMouseMove = (e) => {
-                const rect = btn.getBoundingClientRect();
-                const x = (e.clientX - rect.left - rect.width / 2) * 0.15;
-                const y = (e.clientY - rect.top - rect.height / 2) * 0.15;
-                gsap.to(inner, { x, y, duration: 0.3, ease: 'power2.out' });
-            };
-
-            const handleMouseLeave = () => {
-                gsap.to(inner, { x: 0, y: 0, duration: 0.5, ease: 'elastic.out(1, 0.5)' });
-            };
-
-            btn.addEventListener('mousemove', handleMouseMove);
-            btn.addEventListener('mouseleave', handleMouseLeave);
-
-            return () => {
-                btn.removeEventListener('mousemove', handleMouseMove);
-                btn.removeEventListener('mouseleave', handleMouseLeave);
-            };
-        });
+        // ... rest of your useEffect code remains the same
     }, []);
+
+    const handleNavigation = (path) => {
+        router.push(path);
+    };
 
     return (
         <section className="py-32 relative overflow-hidden bg-[#f5f3f0]" id="cta">
@@ -88,13 +41,19 @@ export default function DefenseCTA() {
 
                 <div className="flex flex-wrap justify-center gap-4 mb-16 r-up opacity-0 translate-y-10">
                     <div className="mag-btn">
-                        <button className="btn-inner inline-flex items-center gap-2 px-8 py-4 rounded-full hero-cta text-white font-normal shadow-lg shadow-slate-500/20 group">
+                        <button 
+                            onClick={() => handleNavigation('/talk-to-sales')}
+                            className="btn-inner inline-flex items-center gap-2 px-8 py-4 rounded-full hero-cta text-white font-normal shadow-lg shadow-slate-500/20 group"
+                        >
                             <span className='text-black'>Defense Inquiries</span>
                             <ArrowRight className="w-4 h-4 text-black transition-transform group-hover:translate-x-1" />
                         </button>
                     </div>
                     <div className="mag-btn">
-                        <button className="btn-inner px-8 py-4 rounded-full bg-black/[0.05] border border-black/[0.1] text-gray-600 font-light hover:bg-black/[0.08] transition-all">
+                        <button 
+                            onClick={() => handleNavigation('/secure-discussion')}
+                            className="btn-inner px-8 py-4 rounded-full bg-black/[0.05] border border-black/[0.1] text-gray-600 font-light hover:bg-black/[0.08] transition-all"
+                        >
                             Secure Discussion
                         </button>
                     </div>

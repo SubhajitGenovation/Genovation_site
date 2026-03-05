@@ -1,5 +1,6 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { ArrowRight, BookOpen, Unplug, Wallet, Search, MapPin } from "lucide-react";
 
 const ctaCards = [
@@ -10,6 +11,12 @@ const ctaCards = [
 ];
 
 export default function SlmCTA() {
+  const router = useRouter();
+
+  const handleRequestDemo = () => {
+    router.push("/request-demo");
+  };
+
   return (
     <section className="py-56 relative overflow-hidden" id="cta">
       <div className="orb w-[800px] h-[800px] bg-gradient-to-br from-emerald-500/[0.06] via-cyan-500/[0.04] to-violet-500/[0.06]" style={{ top: "10%", left: "20%" }} />
@@ -52,7 +59,10 @@ export default function SlmCTA() {
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </span>
           </button>
-          <button className="px-8 py-3.5 rounded-full bg-black/[0.05] border border-black/[0.1] text-gray-600 text-[14px] font-light flex items-center gap-2.5 hover:bg-black/[0.07] transition-all">
+          <button 
+            onClick={handleRequestDemo}
+            className="px-8 py-3.5 rounded-full bg-black/[0.05] border border-black/[0.1] text-gray-600 text-[14px] font-light flex items-center gap-2.5 hover:bg-black/[0.07] transition-all"
+          >
             <BookOpen className="w-4 h-4" /> Request Demo
           </button>
         </div>

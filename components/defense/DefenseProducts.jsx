@@ -398,8 +398,11 @@ export default function DefenseProducts() {
                         ))}
                     </div>
 
-                    <div className="mock-app r-up opacity-0 translate-y-20">
+                    {/* ── SECRET // NOFORN mock app ── FIXED */}
+                    <div className="mock-app r-up opacity-0 translate-y-20 overflow-hidden">
                         <div className="class-banner class-secret">SECRET // NOFORN</div>
+
+                        {/* Toolbar */}
                         <div className="app-toolbar">
                             <div className="flex items-center gap-4">
                                 <div className="app-dots flex gap-[7px]">
@@ -416,8 +419,12 @@ export default function DefenseProducts() {
                             </div>
                             <span className="pill pill-r">SECRET</span>
                         </div>
-                        <div className="grid grid-cols-[200px,1fr] min-h-[600px]">
-                            <div className="app-sidebar p-4">
+
+                        {/* Body: sidebar + main */}
+                        <div className="flex" style={{ minHeight: '520px' }}>
+
+                            {/* Sidebar */}
+                            <div className="app-sidebar flex-shrink-0 p-4 flex flex-col" style={{ width: '200px' }}>
                                 <p className="label-mono px-2 mb-2">Programs</p>
                                 <div className="sidebar-item active">
                                     <Folder className="w-3.5 h-3.5" />
@@ -454,35 +461,63 @@ export default function DefenseProducts() {
                                     Trade Studies (63)
                                 </div>
 
+                                {/* Index badge pinned to bottom */}
                                 <div className="mt-auto pt-4">
                                     <div className="p-3 rounded-xl bg-violet-500/[0.04] border border-violet-500/[0.1] mx-1">
-                                        <p className="text-[9px] text-gray-400 font-light"><span className="text-violet-600 font-medium">586 documents</span> indexed</p>
+                                        <p className="text-[9px] text-gray-400 font-light">
+                                            <span className="text-violet-600 font-medium">586 documents</span> indexed
+                                        </p>
                                         <p className="text-[9px] text-gray-400 font-light mt-0.5">Last sync: 2h ago</p>
                                     </div>
                                 </div>
                             </div>
-                            <div className="p-6 space-y-5">
+
+                            {/* Main chat panel */}
+                            <div className="flex-1 p-6 space-y-5 overflow-y-auto border-l border-black/[0.05]">
                                 <div className="chat-u">
-                                    <p className="text-[13px] text-gray-700 font-light">What was the design rationale for the thermal management system in AEGIS Platform? Include trade study results and CDR decisions.</p>
+                                    <p className="text-[13px] text-gray-700 font-light">
+                                        What was the design rationale for the thermal management system in AEGIS Platform? Include trade study results and CDR decisions.
+                                    </p>
                                 </div>
+
                                 <div className="chat-a">
                                     <div className="flex items-center gap-2 mb-4">
                                         <div className="w-6 h-6 rounded-lg bg-violet-500/[0.1] flex items-center justify-center">
                                             <Bot className="w-3.5 h-3.5 text-violet-600" />
                                         </div>
-                                        <span className="text-[12px] text-gray-500 font-light">Synthesized from <span className="text-violet-600 font-medium">4 classified documents</span></span>
+                                        <span className="text-[12px] text-gray-500 font-light">
+                                            Synthesized from{' '}
+                                            <span className="text-violet-600 font-medium">4 classified documents</span>
+                                        </span>
                                         <span className="text-[10px] text-gray-300 ml-2">2.4s</span>
                                     </div>
-                                    <p className="text-[13px] text-gray-600 font-light mb-4">The AEGIS Platform TMS design evolved through three phases. Here are the source documents, ranked by relevance:</p>
+
+                                    <p className="text-[13px] text-gray-600 font-light mb-4">
+                                        The AEGIS Platform TMS design evolved through three phases. Here are the source documents, ranked by relevance:
+                                    </p>
 
                                     <div className="space-y-2 mb-5">
                                         {[
-                                            { title: 'TMS Design Document Rev D', desc: 'Active cooling selected over passive — thermal load exceeded 2.4kW threshold', score: '98', offset: '2' },
-                                            { title: 'CDR Thermal Analysis Package', desc: 'Board approved liquid-loop with vapor chamber backup', score: '94', offset: '8' }
+                                            {
+                                                title: 'TMS Design Document Rev D',
+                                                desc: 'Active cooling selected over passive — thermal load exceeded 2.4kW threshold',
+                                                score: '98',
+                                                dashOffset: 2
+                                            },
+                                            {
+                                                title: 'CDR Thermal Analysis Package',
+                                                desc: 'Board approved liquid-loop with vapor chamber backup',
+                                                score: '94',
+                                                dashOffset: 8
+                                            }
                                         ].map((doc, i) => (
-                                            <div key={i} className="rrow" style={{ borderColor: 'rgba(139,92,246,0.15)' }}>
+                                            <div
+                                                key={i}
+                                                className="rrow"
+                                                style={{ borderColor: 'rgba(139,92,246,0.15)' }}
+                                            >
                                                 <div className="flex items-center gap-3">
-                                                    <div className="w-8 h-8 rounded-lg bg-violet-500/[0.08] flex items-center justify-center">
+                                                    <div className="w-8 h-8 rounded-lg bg-violet-500/[0.08] flex items-center justify-center flex-shrink-0">
                                                         <FileText className="w-4 h-4 text-violet-500" />
                                                     </div>
                                                     <div>
@@ -490,13 +525,29 @@ export default function DefenseProducts() {
                                                         <p className="text-[10px] text-gray-400 font-light">{doc.desc}</p>
                                                     </div>
                                                 </div>
-                                                <div className="flex items-center gap-2">
-                                                    <div className="conf-ring">
-                                                        <svg width="30" height="30">
-                                                            <circle cx="15" cy="15" r="11" fill="none" stroke="rgba(16,185,129,0.12)" strokeWidth="2.5" />
-                                                            <circle cx="15" cy="15" r="11" fill="none" stroke="#10b981" strokeWidth="2.5" strokeDasharray="69" strokeDashoffset={doc.offset} strokeLinecap="round" />
+                                                <div className="flex items-center gap-2 flex-shrink-0">
+                                                    <div className="conf-ring relative flex items-center justify-center" style={{ width: 30, height: 30 }}>
+                                                        <svg width="30" height="30" style={{ position: 'absolute', top: 0, left: 0 }}>
+                                                            <circle
+                                                                cx="15" cy="15" r="11"
+                                                                fill="none"
+                                                                stroke="rgba(16,185,129,0.12)"
+                                                                strokeWidth="2.5"
+                                                            />
+                                                            <circle
+                                                                cx="15" cy="15" r="11"
+                                                                fill="none"
+                                                                stroke="#10b981"
+                                                                strokeWidth="2.5"
+                                                                strokeDasharray="69"
+                                                                strokeDashoffset={doc.dashOffset}
+                                                                strokeLinecap="round"
+                                                                transform="rotate(-90 15 15)"
+                                                            />
                                                         </svg>
-                                                        <span className="absolute text-[7px] text-emerald-600 font-medium">{doc.score}%</span>
+                                                        <span className="text-[7px] text-emerald-600 font-medium" style={{ position: 'relative', zIndex: 1 }}>
+                                                            {doc.score}%
+                                                        </span>
                                                     </div>
                                                 </div>
                                             </div>

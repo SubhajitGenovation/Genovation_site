@@ -38,7 +38,7 @@ export default function CTASection() {
           {/* CTA Buttons */}
           <div className="flex flex-wrap justify-center gap-4 mb-16 r-up">
             <a
-              href="#"
+              href="/talk-to-sales"
               className="hero-cta-primary px-10 py-4 rounded-full text-white font-light text-sm tracking-wider inline-flex items-center gap-3"
             >
               Enterprise Inquiries <ArrowRight className="w-4 h-4" />

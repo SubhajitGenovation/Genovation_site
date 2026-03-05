@@ -1,16 +1,23 @@
 "use client";
 import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 import { ArrowRight } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function CipherVaultCTA() {
+  const router = useRouter();
+
   useEffect(() => {
     gsap.utils.toArray(".r-up").forEach((el) =>
       gsap.to(el, { y: 0, opacity: 1, duration: 1.2, ease: "power3.out", scrollTrigger: { trigger: el, start: "top 88%", toggleActions: "play none none none" } })
     );
   }, []);
+
+  const handleRequestDemo = () => {
+    router.push("/request-demo");
+  };
 
   return (
     <>
@@ -30,7 +37,10 @@ export default function CipherVaultCTA() {
             Data sharing becomes safe by default. Analytics without exposure. Trust replaced by mathematics.
           </p>
           <div className="flex items-center justify-center gap-4 r-up">
-            <button className="group px-8 py-4 rounded-full hero-cta-primary text-white font-light tracking-wide flex items-center gap-2">
+            <button 
+              onClick={handleRequestDemo}
+              className="group px-8 py-4 rounded-full hero-cta-primary text-white font-light tracking-wide flex items-center gap-2"
+            >
               Request Demo
               <ArrowRight className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" />
             </button>
@@ -40,7 +50,6 @@ export default function CipherVaultCTA() {
           </div>
         </div>
       </section>
-
     </>
   );
 }

@@ -418,12 +418,12 @@ export default function TalkToSalesPage() {
 
             {/* Left */}
             <div className="flex flex-col">
-              <div className="mb-8" id="heroBadge">
+              {/* <div className="mb-8" id="heroBadge">
                 <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-emerald-500/[0.1] border border-emerald-500/[0.2]">
                   <MessageSquare className="w-3 h-3 text-emerald-600" />
                   <span className="text-emerald-600 text-[11px] font-light tracking-[0.25em] uppercase">Enterprise Inquiry</span>
                 </div>
-              </div>
+              </div> */}
 
               <h1 className="ts-display-hero text-5xl md:text-6xl lg:text-7xl mb-8" style={{ perspective: '1000px' }}>
                 <span className="hero-line block">Let's Talk</span>
@@ -858,48 +858,6 @@ export default function TalkToSalesPage() {
         </div>
       </section>
 
-      {/* FOOTER */}
-      <footer className="py-16 border-t border-black/[0.06] bg-[#f5f3f0]">
-        <div className="max-w-7xl mx-auto px-8">
-          <div className="grid md:grid-cols-5 gap-12 mb-12">
-            <div className="md:col-span-2">
-              <div className="flex items-center gap-2.5 mb-4">
-                <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-emerald-400 to-cyan-400 flex items-center justify-center">
-                  <svg className="w-3.5 h-3.5 text-black" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
-                    <circle cx="12" cy="12" r="3" /><path d="M12 2v4m0 12v4M2 12h4m12 0h4" />
-                  </svg>
-                </div>
-                <span className="text-sm font-light text-gray-600">Genovation</span>
-              </div>
-              <p className="text-[13px] text-gray-600 font-light leading-relaxed max-w-xs">
-                Sovereign enterprise intelligence. Your data, your infrastructure, your AI.
-              </p>
-            </div>
-            {[
-              { label: 'Platform', links: ['Mentis AgentOS', 'JUDGE', 'CipherVault', 'Data Backbone'] },
-              { label: 'Products', links: ['Knowledge', 'Analytics', 'Strategy', 'CX'] },
-              { label: 'Company', links: ['About', 'Careers', 'Security', 'Contact'] }
-            ].map(({ label, links }) => (
-              <div key={label}>
-                <div className="text-[11px] text-gray-600 font-mono tracking-wider uppercase mb-4">{label}</div>
-                <div className="space-y-2.5">
-                  {links.map(link => (
-                    <Link key={link} href="#" className="block text-[13px] text-gray-600 hover:text-emerald-600 font-light transition-colors">{link}</Link>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="border-t border-black/[0.04] pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-xs text-gray-600 font-light">© 2026 Genovation. All rights reserved.</p>
-            <div className="flex gap-8">
-              {['Privacy', 'Terms', 'Security'].map(item => (
-                <Link key={item} href="#" className="text-xs text-gray-600 hover:text-emerald-600 font-light transition-colors">{item}</Link>
-              ))}
-            </div>
-          </div>
-        </div>
-      </footer>
     </>
   );
 }

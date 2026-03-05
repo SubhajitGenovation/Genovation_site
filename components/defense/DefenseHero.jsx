@@ -10,8 +10,9 @@ export default function DefenseHero() {
     useEffect(() => {
         const tl = gsap.timeline({ delay: 0.3 });
 
-        tl.to('.hero-breadcrumb', { opacity: 1, duration: 0.6, ease: 'power2.out' });
-        tl.to('.hero-badge', { opacity: 1, duration: 0.6, ease: 'power2.out' }, '-=0.3');
+        // Removed breadcrumb and badge animations
+        // tl.to('.hero-breadcrumb', { opacity: 1, duration: 0.6, ease: 'power2.out' });
+        // tl.to('.hero-badge', { opacity: 1, duration: 0.6, ease: 'power2.out' }, '-=0.3');
 
         // Character animation for title
         tl.to('.hero-char', {
@@ -43,25 +44,27 @@ export default function DefenseHero() {
     };
 
     return (
-        <section ref={heroRef} className="relative min-h-[120vh] flex items-center justify-center overflow-hidden pt-24" id="hero">
+        <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden pt-32 md:pt-40" id="hero">
             <div className="absolute inset-0 mesh-bg-slate opacity-20"></div>
             <div className="orb w-[700px] h-[500px] bg-slate-500/[0.06] top-[-10%] left-[25%]"></div>
             <div className="orb w-[500px] h-[400px] bg-slate-600/[0.04] bottom-[10%] right-[10%]"></div>
 
             <div className="relative max-w-6xl mx-auto px-8">
-                <div className="hero-breadcrumb flex items-center gap-2 text-sm mb-12 opacity-0">
+                {/* Removed breadcrumb section */}
+                {/* <div className="hero-breadcrumb flex items-center gap-2 text-sm mb-12 opacity-0">
                     <span className="text-gray-400 font-light">Industries</span>
                     <ChevronRight className="w-3.5 h-3.5 text-gray-300" />
                     <span className="text-slate-600 font-light">Defense</span>
-                </div>
+                </div> */}
 
                 <div className="max-w-4xl">
-                    <div className="hero-badge mb-8 opacity-0">
+                    {/* Removed badge section */}
+                    {/* <div className="hero-badge mb-8 opacity-0">
                         <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-slate-500/[0.08] border border-slate-500/[0.2]">
                             <div className="w-2 h-2 rounded-full bg-slate-500 animate-pulse"></div>
                             <span className="text-slate-700 text-[11px] font-light tracking-[0.25em] uppercase">Defense & National Security</span>
                         </div>
-                    </div>
+                    </div> */}
 
                     <h1 className="display-hero text-6xl lg:text-[6.5rem] mb-6 perspective-[1000px]">
                         <span className="block whitespace-nowrap">{renderText("Mission-Grade")}</span>

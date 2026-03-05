@@ -13,9 +13,7 @@ import Icon from "./ui/Icon";
 import TalkToSales from "../common/TalkToSales";
 import Button from "../common/Button";
 
-
 const toPublicPath = (href = "/") => href.replace(/^\/a-/, "/");
-
 
 const NAV_ITEMS = [
   { key: "products", label: "Products" },
@@ -25,7 +23,6 @@ const NAV_ITEMS = [
   { key: "company", label: "Company" },
 ];
 
-
 const PANEL_COMPONENTS = {
   products: ProductsPanel,
   platform: PlatformPanel,
@@ -34,20 +31,19 @@ const PANEL_COMPONENTS = {
   company: CompanyPanel,
 };
 
-
 export default function Header() {
   const pathname = usePathname();
   const [activePanel, setActivePanel] = useState("");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileActivePanel, setMobileActivePanel] = useState(""); // Track which panel is open in mobile
   const closeTimerRef = useRef(null);
   const [scrolled, setScrolled] = useState(false);
-
 
   useEffect(() => {
     setActivePanel("");
     setMobileMenuOpen(false);
+    setMobileActivePanel(""); // Reset mobile panel on route change
   }, [pathname]);
-
 
   useEffect(() => {
     const handleScroll = () => {
@@ -57,14 +53,12 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-
   const clearCloseTimer = () => {
     if (closeTimerRef.current) {
       window.clearTimeout(closeTimerRef.current);
       closeTimerRef.current = null;
     }
   };
-
 
   const scheduleClose = () => {
     clearCloseTimer();
@@ -74,12 +68,29 @@ export default function Header() {
     }, 150);
   };
 
-
   const openPanel = (panelKey) => {
     clearCloseTimer();
     setActivePanel(panelKey);
   };
 
+  // Handle mobile nav item click
+  const handleMobileNavClick = (itemKey) => {
+    if (mobileActivePanel === itemKey) {
+      // If same panel is already open, close it
+      setMobileActivePanel("");
+    } else {
+      // Open the selected panel
+      setMobileActivePanel(itemKey);
+    }
+  };
+
+  // Go back to main mobile menu
+  const handleMobileBack = () => {
+    setMobileActivePanel("");
+  };
+
+  // Get the component for mobile panel
+  const MobilePanelComponent = mobileActivePanel ? PANEL_COMPONENTS[mobileActivePanel] : null;
 
   return (
     <>
@@ -105,7 +116,7 @@ export default function Header() {
             />
           </Link>
 
-
+          {/* Desktop Navigation */}
           <div
             className="hidden md:flex items-center gap-9"
             onMouseLeave={scheduleClose}
@@ -128,7 +139,6 @@ export default function Header() {
                   <Icon name="chevron-right" className={`w-2.5 h-2.5 transition-transform duration-200 ${activePanel === item.key ? "rotate-90 text-emerald-600" : "rotate-0 text-gray-400 group-hover:text-gray-600"}`} />
                 </span>
 
-
                 {activePanel === item.key && (
                   <motion.div
                     layoutId="navUnderline"
@@ -140,19 +150,21 @@ export default function Header() {
             ))}
           </div>
 
-
-          {/* ✅ Wrapped with Link for /talk-to-sales redirect */}
+          {/* Desktop CTA */}
           <div className="hidden md:block">
             <Link href="/talk-to-sales">
               <Button variant="primary" icon="arrow" className="text-white cursor-pointer">Talk to Sales</Button>
             </Link>
           </div>
 
-
+          {/* Mobile Menu Button */}
           <button
             type="button"
             className="md:hidden p-2 text-gray-600 z-10"
-            onClick={() => setMobileMenuOpen((open) => !open)}
+            onClick={() => {
+              setMobileMenuOpen((open) => !open);
+              setMobileActivePanel(""); // Reset mobile panel when toggling menu
+            }}
           >
             <Icon
               name={mobileMenuOpen ? "close" : "menu"}
@@ -162,8 +174,7 @@ export default function Header() {
         </div>
       </motion.nav>
 
-
-      {/* Mega overlay */}
+      {/* Desktop Mega overlay */}
       <AnimatePresence>
         {activePanel && (
           <motion.div
@@ -171,16 +182,15 @@ export default function Header() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 bg-black/5 z-40"
+            className="fixed inset-0 bg-black/5 z-40 hidden md:block"
             style={{ top: scrolled ? "60px" : "82px" }}
             onMouseEnter={scheduleClose}
           />
         )}
       </AnimatePresence>
 
-
-      {/* Mega panels */}
-      <div className="fixed top-0 left-0 right-0 z-40 pointer-events-none">
+      {/* Desktop Mega panels */}
+      <div className="fixed top-0 left-0 right-0 z-40 pointer-events-none hidden md:block">
         <AnimatePresence>
           {activePanel && (
             <motion.div
@@ -205,7 +215,6 @@ export default function Header() {
         </AnimatePresence>
       </div>
 
-
       {/* Mobile Menu */}
       <AnimatePresence>
         {mobileMenuOpen && (
@@ -214,30 +223,68 @@ export default function Header() {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed inset-0 z-50 bg-[#fbf9f6] pt-[82px] px-6 overflow-y-auto md:hidden"
+            className="fixed inset-0 z-50 bg-[#fbf9f6] pt-[82px] overflow-y-auto md:hidden"
           >
-            <div className="flex flex-col gap-4 py-6">
-              {NAV_ITEMS.map((item, i) => (
-                <motion.div
-                  key={item.key}
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.1 + i * 0.05 }}
+            {/* Mobile Header with Back button when in panel view */}
+            {mobileActivePanel ? (
+              <div className="sticky top-0 bg-[#fbf9f6] border-b border-gray-100 px-6 py-4 flex items-center gap-3 z-10">
+                <button
+                  onClick={handleMobileBack}
+                  className="p-1 hover:bg-gray-100 rounded-lg transition-colors"
                 >
-                  <Link href="#" className="flex items-center justify-between text-lg font-medium text-gray-900 border-b border-gray-100 pb-3">
-                    {item.label}
-                    <Icon name="chevron-right" className="w-4 h-4 text-gray-400" />
-                  </Link>
+                  <Icon name="chevron-left" className="w-5 h-5 text-gray-600" />
+                </button>
+                <span className="text-sm font-medium text-emerald-700 uppercase tracking-widest">
+                  {NAV_ITEMS.find(item => item.key === mobileActivePanel)?.label}
+                </span>
+              </div>
+            ) : null}
+
+            {/* Mobile Content */}
+            <div className="px-6 py-4">
+              {!mobileActivePanel ? (
+                /* Main Mobile Menu */
+                <div className="flex flex-col gap-2">
+                  {NAV_ITEMS.map((item, i) => (
+                    <motion.div
+                      key={item.key}
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.1 + i * 0.05 }}
+                    >
+                      <button
+                        onClick={() => handleMobileNavClick(item.key)}
+                        className="w-full flex items-center justify-between text-left text-lg font-medium text-gray-900 border-b border-gray-100 py-4 hover:text-emerald-700 transition-colors"
+                      >
+                        {item.label}
+                        <Icon name="chevron-right" className="w-4 h-4 text-gray-400" />
+                      </button>
+                    </motion.div>
+                  ))}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.4 }}
+                    className="mt-6"
+                  >
+                    <Link href="/talk-to-sales" onClick={() => setMobileMenuOpen(false)}>
+                      <Button variant="primary" icon="arrow" className="w-full text-white">
+                        Talk to Sales
+                      </Button>
+                    </Link>
+                  </motion.div>
+                </div>
+              ) : (
+                /* Mobile Panel View */
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  className="pb-8"
+                >
+                  {MobilePanelComponent && <MobilePanelComponent />}
                 </motion.div>
-              ))}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 }}
-                className="mt-6"
-              >
-                <TalkToSales className="w-full" size="lg" />
-              </motion.div>
+              )}
             </div>
           </motion.div>
         )}

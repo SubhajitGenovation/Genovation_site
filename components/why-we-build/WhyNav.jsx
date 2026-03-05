@@ -1,5 +1,6 @@
 "use client";
 import { useRef } from "react";
+import { useRouter } from "next/navigation";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -8,6 +9,11 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function WhyNav() {
   const navRef = useRef(null);
+  const router = useRouter();
+
+  const handleRequestDemo = () => {
+    router.push("/request-demo");
+  };
 
   useGSAP(() => {
     ScrollTrigger.create({
@@ -42,7 +48,10 @@ export default function WhyNav() {
           ))}
           <Link href="#" className="text-xs text-emerald-600 font-light tracking-widest uppercase">Why We Build</Link>
         </div>
-        <button className="px-5 py-2 rounded-full bg-black/[0.05] border border-black/[0.1] text-gray-700 hover:border-emerald-500/30 hover:text-emerald-600 text-xs font-light tracking-widest uppercase transition-all">
+        <button 
+          onClick={handleRequestDemo}
+          className="px-5 py-2 rounded-full bg-black/[0.05] border border-black/[0.1] text-gray-700 hover:border-emerald-500/30 hover:text-emerald-600 text-xs font-light tracking-widest uppercase transition-all"
+        >
           Request Demo
         </button>
       </div>

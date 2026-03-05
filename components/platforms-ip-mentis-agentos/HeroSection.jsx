@@ -10,12 +10,12 @@ export default function HeroSection() {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div>
             {/* Badge */}
-            <div className="mb-8 opacity-0" id="heroBadge">
+            {/* <div className="mb-8 opacity-0" id="heroBadge">
               <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-emerald-500/[0.1] border border-emerald-500/[0.2]">
                 <div className="w-2 h-2 rounded-full bg-emerald-500" style={{ animation: "pulse-soft 2s ease-in-out infinite" }} />
                 <span className="text-emerald-600 text-[11px] font-light tracking-[0.25em] uppercase">Core Platform</span>
               </div>
-            </div>
+            </div> */}
 
             {/* Heading */}
             <h1 className="display-hero mb-6" style={{ fontSize: "clamp(3.5rem,8vw,7rem)", perspective: 1000 }} id="heroTitle">

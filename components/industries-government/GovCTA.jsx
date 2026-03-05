@@ -1,6 +1,10 @@
 "use client";
 
+import { useRouter } from "next/navigation";
+
 export default function GovCTA() {
+  const router = useRouter();
+
   return (
     <section className="py-32 relative overflow-hidden" id="cta">
       <div className="orb" style={{ width: 600, height: 400, background: "rgba(59,130,246,0.05)", bottom: "10%", left: "20%" }} />
@@ -27,6 +31,7 @@ export default function GovCTA() {
         <div className="flex flex-wrap justify-center gap-4 mb-16 r-up">
           <div className="mag-btn">
             <button
+              onClick={() => router.push('/talk-to-sales')}
               className="btn-inner inline-flex items-center gap-2 px-8 py-4 rounded-full text-white font-normal hero-cta"
             >
               <span>Government Inquiries</span>
@@ -37,6 +42,7 @@ export default function GovCTA() {
           </div>
           <div className="mag-btn">
             <button
+              onClick={() => router.push('/schedule-briefing')}
               className="btn-inner px-8 py-4 rounded-full text-gray-600 font-light transition-all"
               style={{ background: "rgba(0,0,0,0.05)", border: "1px solid rgba(0,0,0,0.1)" }}
             >

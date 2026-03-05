@@ -53,12 +53,12 @@ export default function ResearchHero() {
 
           {/* Left - Text */}
           <div>
-            <div className="mb-8 opacity-0" id="heroBadge">
+            {/* <div className="mb-8 opacity-0" id="heroBadge">
               <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-indigo-500/[0.1] border border-indigo-500/[0.2]">
                 <div className="w-2 h-2 rounded-full bg-indigo-500" style={{ animation: "pulse-soft 2s ease-in-out infinite" }}></div>
                 <span className="text-indigo-600 text-[11px] font-light tracking-[0.25em] uppercase">Research &amp; Intellectual Property</span>
               </div>
-            </div>
+            </div> */}
 
             <h1 className="display-hero text-6xl lg:text-[7rem] mb-6" id="heroTitle" style={{ perspective: "1000px" }}>
               <span className="hero-line" style={{ whiteSpace: "nowrap" }}>Deep-Tech</span><br />

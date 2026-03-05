@@ -95,14 +95,13 @@ export default function PatentHero() {
       });
     });
 
-    // Hero entrance timeline
+    // Hero entrance timeline - updated without breadcrumb
     const tl = gsap.timeline({ delay: 0.3 });
-    tl.to("#heroBreadcrumb", { opacity: 1, duration: 0.6, ease: "power2.out" })
-      .to("#heroBadge",      { opacity: 1, duration: 0.8, ease: "power2.out" }, "-=0.3")
+    tl.to("#heroBadge", { opacity: 1, duration: 0.8, ease: "power2.out" })
       .to(".hero-line-1 .char", {
         opacity: 1, y: 0, rotateX: 0, skewX: 0,
         stagger: 0.03, duration: 1, ease: "power4.out",
-      }, "-=0.4")
+      }, "-=0.2")
       .to(".hero-line-2 .char", {
         opacity: 1, y: 0, rotateX: 0, skewX: 0,
         stagger: 0.03, duration: 1, ease: "power4.out",
@@ -127,7 +126,7 @@ export default function PatentHero() {
   return (
     <section
       ref={heroRef}
-      className="relative min-h-[120vh] flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
       id="hero"
     >
       <div className="absolute inset-0 mesh-bg opacity-20" />
@@ -138,39 +137,14 @@ export default function PatentHero() {
 
       <div className="relative max-w-6xl mx-auto px-8" id="heroContent">
 
-        {/* Breadcrumb */}
-        <div className="flex items-center gap-2 text-sm mb-12 opacity-0" id="heroBreadcrumb">
-          <span className="text-gray-400 font-light">Research IP</span>
-          <ChevronRight className="w-3.5 h-3.5 text-gray-300" />
-          <span className="text-amber-600 font-light">Patent Portfolio</span>
-        </div>
-
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left col */}
           <div>
-            {/* Badge */}
-            <div className="mb-8 opacity-0" id="heroBadge">
-              <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-amber-500/[0.1] border border-amber-500/[0.2]">
-                <span
-                  className="w-2 h-2 rounded-full bg-amber-500"
-                  style={{ animation: "pulse-soft 2s ease-in-out infinite" }}
-                />
-                <span className="text-amber-700 text-[11px] font-light tracking-[0.25em] uppercase">
-                  Patent Portfolio
-                </span>
-              </div>
-            </div>
-
-            {/* Headline */}
+            {/* Headline - adjusted spacing since breadcrumb removed */}
             <h1
               className="display-hero text-6xl lg:text-[7rem] mb-6"
               style={{ perspective: "1000px" }}
             >
-              {/*
-                hero-line-1  — plain text line
-                hero-line-2  — gradient line (data-gradient="amber" triggers
-                               per-char inline gradient in the split loop above)
-              */}
               <span
                 className="hero-line hero-line-1"
                 style={{ whiteSpace: "nowrap", display: "block" }}
@@ -218,7 +192,7 @@ export default function PatentHero() {
                 </svg>
               </a>
               <a
-                href="#cta"
+                href="/talk-to-sales"
                 className="px-7 py-3.5 rounded-full bg-black/[0.05] border border-black/[0.1] text-gray-600 text-[14px] font-light hover:bg-black/[0.08] transition-all"
               >
                 Investor Inquiries

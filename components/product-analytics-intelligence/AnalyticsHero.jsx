@@ -10,7 +10,7 @@ export default function AnalyticsHero() {
     () => {
       const heroTL = gsap.timeline({ defaults: { ease: "power3.out" } });
       heroTL
-        .to("#heroBadge", { opacity: 1, duration: 0.8, delay: 0.3 })
+        // Removed heroBadge animation
         .from(
           ".hero-line",
           { y: 120, rotateX: -30, skewX: -4, opacity: 0, stagger: 0.2, duration: 1.2 },
@@ -28,7 +28,7 @@ export default function AnalyticsHero() {
   return (
     <section
       ref={container}
-      className="relative min-h-[130vh] flex items-center justify-center overflow-hidden"
+      className="relative min-h-[100vh] flex items-center justify-center overflow-hidden"
       id="hero"
     >
       <div className="absolute inset-0 mesh-bg opacity-30" />
@@ -45,16 +45,8 @@ export default function AnalyticsHero() {
         style={{ top: "40%", left: "50%" }}
       />
 
-      <div className="relative max-w-6xl mx-auto px-8 text-center" id="heroContent">
-        {/* Badge */}
-        <div className="mb-12 opacity-0" id="heroBadge">
-          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-amber-500/[0.08] border border-amber-500/[0.15]">
-            <span className="w-1.5 h-1.5 rounded-full bg-amber-500 soft-pulse" />
-            <span className="text-amber-600 text-[11px] font-light tracking-[0.25em] uppercase">
-              Decision Intelligence Platform
-            </span>
-          </div>
-        </div>
+      <div className="relative max-w-6xl mx-auto px-8 text-center pt-32 md:pt-40" id="heroContent">
+        {/* Removed Badge section */}
 
         {/* Heading */}
         <h1 className="display-hero text-[clamp(3.5rem,8vw,7.5rem)] mb-12">
@@ -116,7 +108,7 @@ export default function AnalyticsHero() {
             Explore Capabilities
           </a>
           <a
-            href="#demo"
+            href="/request-demo"
             className="px-7 py-3 rounded-full bg-black/[0.05] border border-black/[0.1] text-gray-700 hover:border-amber-500/30 hover:text-amber-600 text-sm font-light tracking-wide transition-all"
           >
             Request Demo

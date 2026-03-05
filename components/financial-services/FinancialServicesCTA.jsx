@@ -1,8 +1,11 @@
 "use client";
 
 import { ArrowRight } from "lucide-react";
+import { useRouter } from 'next/navigation';
 
 export default function FinancialServicesCTA() {
+  const router = useRouter();
+
   return (
     <section className="py-40 relative overflow-hidden" id="cta">
       <div className="orb w-[600px] h-[600px] bg-emerald-900/[0.04]" style={{ top: "10%", left: "25%" }} />
@@ -17,7 +20,10 @@ export default function FinancialServicesCTA() {
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16 r-up">
-          <button className="group px-8 py-3.5 rounded-full bg-gradient-to-r from-emerald-800 to-teal-700 text-white text-[15px] font-normal flex items-center gap-3 hover:shadow-2xl hover:shadow-emerald-900/20 transition-all">
+          <button 
+            onClick={() => router.push('/talk-to-sales')}
+            className="group px-8 py-3.5 rounded-full bg-gradient-to-r from-emerald-800 to-teal-700 text-white text-[15px] font-normal flex items-center gap-3 hover:shadow-2xl hover:shadow-emerald-900/20 transition-all"
+          >
             Financial Services Inquiries
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </button>

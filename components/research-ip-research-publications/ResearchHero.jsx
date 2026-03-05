@@ -36,8 +36,10 @@ export default function ResearchHero() {
     });
 
     const tl = gsap.timeline({ delay: 0.3 });
-    tl.to("#heroBreadcrumb", { opacity: 1, duration: 0.6, ease: "power2.out" })
-      .to("#heroBadge",      { opacity: 1, duration: 0.6, ease: "power2.out" }, "-=0.3")
+    tl
+      // Removed breadcrumb and badge animations
+      // .to("#heroBreadcrumb", { opacity: 1, duration: 0.6, ease: "power2.out" })
+      // .to("#heroBadge",      { opacity: 1, duration: 0.6, ease: "power2.out" }, "-=0.3")
       .to(".hero-line:first-child .char", { opacity: 1, y: 0, rotateX: 0, skewX: 0, stagger: 0.03, duration: 1, ease: "power4.out" }, "-=0.2")
       .to(".hero-line:last-child .char",  { opacity: 1, y: 0, rotateX: 0, skewX: 0, stagger: 0.03, duration: 1, ease: "power4.out" }, "-=0.7")
       .to("#heroSub1 p",  { y: 0, duration: 1, ease: "power3.out" }, "-=0.5")
@@ -48,28 +50,29 @@ export default function ResearchHero() {
   }, { scope: heroRef });
 
   return (
-    <section ref={heroRef} className="relative min-h-[110vh] flex items-center justify-center overflow-hidden" id="hero">
+    <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden pt-32 md:pt-40" id="hero">
       <div className="absolute inset-0 mesh-bg opacity-15" />
       <div className="orb w-[800px] h-[600px] bg-violet-500/[0.06]" style={{ top: "-10%", left: "30%" }} />
       <div className="orb w-[500px] h-[500px] bg-cyan-500/[0.05]" style={{ bottom: "10%", right: "10%" }} />
 
-      <div className="relative max-w-6xl mx-auto px-8 pt-32">
-        {/* Breadcrumb */}
-        <div className="flex items-center gap-2 text-sm mb-12 opacity-0" id="heroBreadcrumb">
+      <div className="relative max-w-6xl mx-auto px-8">
+        {/* Removed Breadcrumb section */}
+        {/* <div className="flex items-center gap-2 text-sm mb-12 opacity-0" id="heroBreadcrumb">
           <a href="#" className="text-gray-500 hover:text-gray-700 text-xs font-light tracking-wide transition-colors">Research & IP</a>
           <span className="text-gray-400">/</span>
           <span className="text-emerald-600 text-xs font-light tracking-wide">Research Publications</span>
-        </div>
+        </div> */}
 
         <div className="grid lg:grid-cols-2 gap-20 items-center">
           {/* Left */}
           <div>
-            <div className="mb-8 opacity-0" id="heroBadge">
+            {/* Removed Badge section */}
+            {/* <div className="mb-8 opacity-0" id="heroBadge">
               <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-violet-500/[0.1] border border-violet-500/[0.2]">
                 <FlaskConical className="w-3 h-3 text-violet-600" />
                 <span className="text-violet-600 text-[11px] font-light tracking-[0.25em] uppercase">Research Publications</span>
               </div>
-            </div>
+            </div> */}
 
             <h1 className="display-hero text-6xl md:text-[7rem] lg:text-[8rem] mb-8" style={{ perspective: "1000px" }}>
               <span className="hero-line">Building</span><br />

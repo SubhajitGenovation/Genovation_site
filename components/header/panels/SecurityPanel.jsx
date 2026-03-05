@@ -8,8 +8,10 @@ const toPublicPath = (href = "/") => href.replace(/^\/a-/, "/");
 export default function SecurityPanel() {
   return (
     <div className="pt-0 pb-6">
-      <div className="grid grid-cols-[4.5fr_4fr_3.5fr] gap-0 px-0 py-9">
-        <div className="pr-10 border-r border-gray-100">
+      {/* Mobile: Stack vertically, Desktop: 3-column grid */}
+      <div className="grid grid-cols-1 md:grid-cols-[4.5fr_4fr_3.5fr] gap-6 md:gap-0 px-0 py-6 md:py-9">
+        {/* Left Column */}
+        <div className="md:pr-10 md:border-r border-gray-100">
           <div className="text-xs uppercase tracking-widest text-emerald-700 mb-4 font-semibold">
             Security &amp; Data Sovereignty
           </div>
@@ -35,7 +37,8 @@ export default function SecurityPanel() {
           </div>
         </div>
 
-        <div className="px-9 border-r border-gray-100">
+        {/* Middle Column */}
+        <div className="md:px-9 md:border-r border-gray-100 mt-6 md:mt-0">
           <div className="text-xs uppercase tracking-widest text-emerald-700 mb-4 font-semibold">
             Governance &amp; Audit
           </div>
@@ -72,32 +75,21 @@ export default function SecurityPanel() {
           />
         </div>
 
-        <div className="pl-9">
+        {/* Right Column */}
+        <div className="md:pl-9 mt-6 md:mt-0">
           <div className="bg-emerald-50/50 rounded-xl p-5 border border-emerald-100/50">
             <div className="text-[10px] font-semibold tracking-[0.18em] uppercase text-teal-600 mb-2">
               Defense in Depth
             </div>
             <div className="text-[13px] font-light text-gray-500 leading-relaxed">
               Five security layers protect your data:{" "}
-              <strong className="font-medium text-emerald-700">
-                Edge Perimeter
-              </strong>{" "}
-              →{" "}
-              <strong className="font-medium text-teal-600">
-                Zero-Trust
-              </strong>{" "}
-              →{" "}
-              <strong className="font-medium text-teal-600">
-                CipherVault
-              </strong>{" "}
-              →{" "}
-              <strong className="font-medium text-teal-600">
-                JUDGE
-              </strong>{" "}
-              →{" "}
-              <strong className="font-medium text-emerald-700">
-                Your Data
-              </strong>
+              <span className="block sm:inline mt-1 sm:mt-0">
+                <strong className="font-medium text-emerald-700">Edge Perimeter</strong> →{" "}
+                <strong className="font-medium text-teal-600">Zero-Trust</strong> →{" "}
+                <strong className="font-medium text-teal-600">CipherVault</strong> →{" "}
+                <strong className="font-medium text-teal-600">JUDGE</strong> →{" "}
+                <strong className="font-medium text-emerald-700">Your Data</strong>
+              </span>
             </div>
           </div>
           <div className="mt-4">
@@ -111,7 +103,9 @@ export default function SecurityPanel() {
           </div>
         </div>
       </div>
-      <div className="flex items-center gap-8 pt-4 border-t border-gray-100 text-[13px] font-medium text-gray-500">
+      
+      {/* Footer Links - Wrap on mobile */}
+      <div className="flex flex-wrap items-center gap-4 md:gap-8 pt-4 border-t border-gray-100 text-[13px] font-medium text-gray-500">
         <Link href={toPublicPath("/a-security-sovereignty")} className="hover:text-emerald-700 transition-colors">
           Security Overview →
         </Link>
